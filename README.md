@@ -15,8 +15,6 @@
 
 - has_many :items
 - has_many :item_buys
-- has_many :addresses, through: :user_addresses
-- has_many :user_addresses
 
 ## items テーブル
 
@@ -36,7 +34,6 @@
 
 - belongs_to :user
 - has_one :item_buy
-- belongs_to :address
 
 ## item_buys テーブル
 
@@ -49,7 +46,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_many :addresses
 
 ## addresses テーブル
 
@@ -65,19 +62,4 @@
 
 ### Association
 
-- has_many :user, through: :user_addresses
-- has_many :items
-- has_many :item_buys
-- has_many :user_addresses
-
-## user_addresses テーブル
-
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| user      | references | null: false, foreign_key: true |
-| address   | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :address
+- belongs_to :item_buy
