@@ -46,7 +46,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_many :addresses
+- has_one :addresses
 
 ## addresses テーブル
 
