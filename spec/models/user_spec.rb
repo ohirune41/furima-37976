@@ -74,13 +74,13 @@ RSpec.describe User, type: :model do
         @user.password = '111aa'
         @user.password_confirmation = '111aa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
       it 'passwordが129文字以上では登録できない' do
         @user.password = Faker::Internet.password(min_length: 129)
         @user.password_confirmation = @user.password
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is too long (maximum is 128 characters)")
+        expect(@user.errors.full_messages).to include('Password is too long (maximum is 128 characters)')
       end
       it 'passwordが半角英数字混合でないと登録できない' do
         @user.password = '111111'
@@ -91,22 +91,22 @@ RSpec.describe User, type: :model do
       it 'last_nameが全角かな/カナ/漢字でないと登録できない' do
         @user.last_name = 'a1'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name is invalid. Input full-width characters")
+        expect(@user.errors.full_messages).to include('Last name is invalid. Input full-width characters')
       end
       it 'first_nameが全角かな/カナ/漢字でないと登録できない' do
         @user.first_name = 'a1'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name is invalid. Input full-width characters")
+        expect(@user.errors.full_messages).to include('First name is invalid. Input full-width characters')
       end
       it 'last_name_katakanaが全角カナでないと登録できない' do
         @user.last_name_katakana = 'あ阿a1'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name katakana is invalid. Input full-width katakana characters")
+        expect(@user.errors.full_messages).to include('Last name katakana is invalid. Input full-width katakana characters')
       end
       it 'first_name_katakanaが全角カナでないと登録できない' do
         @user.first_name_katakana = 'あ阿a1'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name katakana is invalid. Input full-width katakana characters")
+        expect(@user.errors.full_messages).to include('First name katakana is invalid. Input full-width katakana characters')
       end
     end
   end
