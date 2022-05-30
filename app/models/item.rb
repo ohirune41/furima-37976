@@ -13,7 +13,7 @@ class Item < ApplicationRecord
     validates :image
     validates :item_name, length: { maximum: 40 }
     validates :explanation, length: { maximum: 1000 }
-    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 0, message: 'is invalid. Input half-width characters' },
+    validates :price, numericality: { only_integer: true, message: 'is invalid. Input half-width characters' },
                       inclusion: { in: 300..9_999_999, message: 'is out of setting range' }
     validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
     validates :quality_id, numericality: { other_than: 1, message: "can't be blank" }
