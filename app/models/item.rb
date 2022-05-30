@@ -13,11 +13,12 @@ class Item < ApplicationRecord
     validates :image
     validates :item_name, length: { maximum: 40 }
     validates :explanation, length: { maximum: 1000 }
-    validates :price, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters' }, inclusion: { in: 300..9999999, message: 'is out of setting range' }
-    validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
-    validates :quality_id, numericality: { other_than: 1 , message: "can't be blank"}
-    validates :payment_id, numericality: { other_than: 1 , message: "can't be blank"}
-    validates :area_id, numericality: { other_than: 1 , message: "can't be blank"}
-    validates :preparation_id, numericality: { other_than: 1 , message: "can't be blank"}
+    validates :price, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters' },
+                      inclusion: { in: 300..9_999_999, message: 'is out of setting range' }
+    validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :quality_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :payment_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :area_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :preparation_id, numericality: { other_than: 1, message: "can't be blank" }
   end
 end
