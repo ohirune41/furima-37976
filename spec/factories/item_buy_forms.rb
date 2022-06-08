@@ -7,7 +7,5 @@ FactoryBot.define do
     house_number          { Faker::Address.street_address }
     building              { '建物' }
     telephone             { "0700#{rand(0..9)}#{rand(10_000..999_999)}" }
-    user_id               { Faker::Number.non_zero_digit }
-    item_id               { Faker::Number.non_zero_digit }
   end
 end
